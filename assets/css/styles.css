@@ -70,6 +70,10 @@ li:nth-child(odd) {
   display: none;
 }
 
+.visible {
+  visibility: hidden;
+}
+
 .start {
   text-align: center;
 }

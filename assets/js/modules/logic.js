@@ -5,7 +5,7 @@ import { questions } from "./questions.js";
 // Quiz object
 const quiz = {
     questions: questions,
-    duration: 10,
+    duration: 60,
     question: 0,
     score: 0,
     startTimer () {
@@ -22,8 +22,8 @@ const quiz = {
                 document.querySelector('#final-score').textContent = this.score;
 
             } else {
-                // Disable start button once quiz has started
-                document.querySelector('#start').disabled = true;
+                // Hide start button once quiz has started
+                document.querySelector('#start').style.visibility = 'hidden';
             }
         };
         let clearTimer = setInterval(countdown, 1000);
@@ -53,11 +53,23 @@ const quiz = {
                 checkAnswer.disabled = false;
             });
         });
-        // Get value from selected answer
+        // Get value from selected answer and check if correct
         checkAnswer.addEventListener('click', (event) => {
             event.preventDefault();
             choiceName.forEach((choice) => {
-                choice.checked ? console.log(choice.value) : null;
+                if (choice.checked) {
+                    if (choice.value === this.questions[this.question][3]) {
+                        this.score += 5;
+                        const audio = new Audio('./assets/sfx/correct.wav');
+                        audio.play();
+                    } else {
+                        this.duration -= 10;
+                        const audio = new Audio('./assets/sfx/incorrect.wav');
+                        audio.play();
+                    }
+
+                };
+
             });
 
             // Increment proper to select next question
