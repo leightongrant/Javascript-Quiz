@@ -59,11 +59,26 @@ const quiz = {
             choiceName.forEach((choice) => {
                 if (choice.checked) {
                     if (choice.value === this.questions[this.question][3]) {
+                        // Adds score
                         this.score += 5;
+                        // Display feedback
+                        document.querySelector("#feedback").setAttribute('class', 'show');
+                        document.querySelector("#feedback").setAttribute('style', 'color: green;');
+                        document.querySelector("#feedback").textContent = "Correct";
+                        setTimeout(() => { document.querySelector("#feedback").setAttribute('class', 'hide'); }, 1000);
+                        // Play feeback sound
                         const audio = new Audio('./assets/sfx/correct.wav');
                         audio.play();
+
                     } else {
+                        // Decrease timer
                         this.duration -= 10;
+                        // Display feedback
+                        document.querySelector("#feedback").setAttribute('class', 'show');
+                        document.querySelector("#feedback").setAttribute('style', 'color: red;');
+                        document.querySelector("#feedback").textContent = "Inorrect";
+                        setTimeout(() => { document.querySelector("#feedback").setAttribute('class', 'hide'); }, 1000);
+                        // Play feedback sound
                         const audio = new Audio('./assets/sfx/incorrect.wav');
                         audio.play();
                     }
@@ -76,7 +91,7 @@ const quiz = {
             this.question++;
 
             // Call buildFrom until quiz is finished
-            if (this.question < 2) {
+            if (this.question < this.questions.length) {
                 this.showForm();
             } else {
                 //Shows final score if all questions answered
