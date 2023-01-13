@@ -87,21 +87,23 @@ const quiz = {
 
             });
 
-            // Increment proper to select next question
+            // Increment question property to select next question
             this.question++;
 
             // Call buildFrom until quiz is finished
             if (this.question < this.questions.length) {
                 this.showForm();
             } else {
-                //Shows final score if all questions answered
-                document.querySelector('#questions').setAttribute('class', 'hide');
-                document.querySelector('#end-screen').setAttribute('class', 'show');
-                document.querySelector('#final-score').textContent = this.score;
+                //Shows final score after two seconds if all questions answered
+                const finalScore = () => {
+                    document.querySelector('#questions').setAttribute('class', 'hide');
+                    document.querySelector('#end-screen').setAttribute('class', 'show');
+                    document.querySelector('#final-score').textContent = this.score;
+                };
+
+                setTimeout(finalScore, 2000);
+
             }
-
-
-
         });
     },
 
