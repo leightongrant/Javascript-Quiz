@@ -5,22 +5,26 @@ import { questions } from "./questions.js";
 // Quiz object
 const quiz = {
     questions: questions,
-    duration: 60,
+    duration: 10,
     question: 0,
     score: 0,
+    finalScore () {
+        document.querySelector('#questions').setAttribute('class', 'hide');
+        document.querySelector('#end-screen').setAttribute('class', 'show');
+        document.querySelector('#final-score').textContent = this.score;
+
+    },
     startTimer () {
         let timeDisplay = document.querySelector('#time');
 
         const countdown = () => {
             timeDisplay.innerText = this.duration;
             this.duration--;
-            if (this.duration < 0) {
+            // Stop time if times up or questions finished
+            if (this.duration < 0 || this.question === this.questions.length) {
                 clearInterval(clearTimer);
-                // Shows final score if timer runs out
-                document.querySelector('#questions').setAttribute('class', 'hide');
-                document.querySelector('#end-screen').setAttribute('class', 'show');
-                document.querySelector('#final-score').textContent = this.score;
-
+                // Shows final score if timer runs out or questions finished
+                setTimeout(this.finalScore, 2000);
             } else {
                 // Hide start button once quiz has started
                 document.querySelector('#start').style.visibility = 'hidden';
@@ -59,6 +63,9 @@ const quiz = {
             choiceName.forEach((choice) => {
                 if (choice.checked) {
                     if (choice.value === this.questions[this.question][3]) {
+                        // Play feeback sound
+                        const audio = new Audio('./assets/sfx/correct.wav');
+                        audio.play();
                         // Adds score
                         this.score += 5;
                         // Display feedback
@@ -66,21 +73,20 @@ const quiz = {
                         document.querySelector("#feedback").setAttribute('style', 'color: green;');
                         document.querySelector("#feedback").textContent = "Correct";
                         setTimeout(() => { document.querySelector("#feedback").setAttribute('class', 'hide'); }, 1000);
-                        // Play feeback sound
-                        const audio = new Audio('./assets/sfx/correct.wav');
-                        audio.play();
+
 
                     } else {
-                        // Decrease timer
-                        this.duration -= 10;
+                        // Play feedback sound
+                        const audio = new Audio('./assets/sfx/incorrect.wav');
+                        audio.play();
+                        // Decrease timer by ten if value is greater than ten
+                        this.duration > 10 ? this.duration -= 10 : this.duration = 0;
                         // Display feedback
                         document.querySelector("#feedback").setAttribute('class', 'show');
                         document.querySelector("#feedback").setAttribute('style', 'color: red;');
                         document.querySelector("#feedback").textContent = "Inorrect";
                         setTimeout(() => { document.querySelector("#feedback").setAttribute('class', 'hide'); }, 1000);
-                        // Play feedback sound
-                        const audio = new Audio('./assets/sfx/incorrect.wav');
-                        audio.play();
+
                     }
 
                 };
@@ -90,19 +96,12 @@ const quiz = {
             // Increment question property to select next question
             this.question++;
 
-            // Call buildFrom until quiz is finished
+            // Call buildFrom until questions is finished
             if (this.question < this.questions.length) {
                 this.showForm();
             } else {
                 //Shows final score after two seconds if all questions answered
-                const finalScore = () => {
-                    document.querySelector('#questions').setAttribute('class', 'hide');
-                    document.querySelector('#end-screen').setAttribute('class', 'show');
-                    document.querySelector('#final-score').textContent = this.score;
-                };
-
-                setTimeout(finalScore, 2000);
-
+                setTimeout(this.finalScore, 2000);
             }
         });
     },
