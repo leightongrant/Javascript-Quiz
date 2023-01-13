@@ -22,6 +22,7 @@ const quiz = {
                 document.querySelector('#final-score').textContent = this.score;
 
             } else {
+                // Disable start button once quiz has started
                 document.querySelector('#start').disabled = true;
             }
         };
