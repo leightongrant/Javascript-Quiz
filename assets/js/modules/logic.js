@@ -5,15 +5,9 @@ import { questions } from "./questions.js";
 // Quiz object
 const quiz = {
     questions: questions,
-    duration: 10,
+    duration: 2,
     question: 0,
     score: 0,
-    finalScore () {
-        document.querySelector('#questions').setAttribute('class', 'hide');
-        document.querySelector('#end-screen').setAttribute('class', 'show');
-        document.querySelector('#final-score').textContent = this.score;
-
-    },
     startTimer () {
         let timeDisplay = document.querySelector('#time');
 
@@ -24,7 +18,7 @@ const quiz = {
             if (this.duration < 0 || this.question === this.questions.length) {
                 clearInterval(clearTimer);
                 // Shows final score if timer runs out or questions finished
-                setTimeout(this.finalScore, 2000);
+                setTimeout(() => { this.finalScore(); }, 1500);
             } else {
                 // Hide start button once quiz has started
                 document.querySelector('#start').style.visibility = 'hidden';
@@ -101,11 +95,16 @@ const quiz = {
                 this.showForm();
             } else {
                 //Shows final score after two seconds if all questions answered
-                setTimeout(this.finalScore, 2000);
+                setTimeout(() => { this.finalScore(); }, 1500);
             }
         });
     },
+    finalScore () {
+        document.querySelector('#questions').setAttribute('class', 'hide');
+        document.querySelector('#end-screen').setAttribute('class', 'show');
+        document.querySelector('#final-score').textContent = this.score;
 
+    },
     startQuiz () {
         // Sets the question property back to zero
         this.question = 0;
@@ -113,11 +112,16 @@ const quiz = {
         this.showForm();
         // Start timer
         this.startTimer();
+    },
+    submitScores () {
+        let playerInitials = document.querySelector("#initials").value;
+        const scores = {};
+        scores[playerInitials] = this.score;
+        localStorage.setItem("highScores", JSON.stringify(scores));
+        console.log(JSON.parse(localStorage.getItem("highScores")));
     }
 };
 
 
 export { quiz };
-
-//module.exports = quiz
 

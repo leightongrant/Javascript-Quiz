@@ -5,4 +5,3 @@ const questions = [
 ];
 
 export { questions };
-//module.exports = questions;
