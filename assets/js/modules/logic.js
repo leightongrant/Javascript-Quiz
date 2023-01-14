@@ -132,11 +132,15 @@ const quiz = {
     renderHighScores () {
         const highScoreslist = document.querySelector("#highscores");
         const highScores = JSON.parse(localStorage.getItem("highScores"));
+
         let listItems = "";
-        highScores.forEach((score) => {
-            listItems += `<li><span class="score-dates">${score[1]}</span class="score-initials">${score[2]}<span></span><span class="high-scores">${score[0]}</span></li>`;
-            //console.log(score[0], score[1], score[2]);
-        });
+        if (highScores !== null) {
+            highScores.forEach((score) => {
+                listItems += `<li><span class="score-dates">${score[1]}</span class="score-initials">${score[2]}<span></span><span class="high-scores">${score[0]}</span></li>`;
+            });
+        } else {
+            listItems = "<li>No scores recorded yet. Play quiz and submit score to see results</li>";
+        }
 
         highScoreslist.innerHTML = listItems;
     }
