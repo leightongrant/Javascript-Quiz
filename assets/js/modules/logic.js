@@ -114,11 +114,22 @@ const quiz = {
         this.startTimer();
     },
     submitScores () {
-        let playerInitials = document.querySelector("#initials").value;
-        const scores = {};
-        scores[playerInitials] = this.score;
-        localStorage.setItem("highScores", JSON.stringify(scores));
-        console.log(JSON.parse(localStorage.getItem("highScores")));
+        let playerInitials = document.querySelector("#initials").value.toUpperCase();
+        let scores = {};
+        let scoresArray = [];
+        if (JSON.parse(localStorage.getItem("highScores")) === null) {
+            scores[playerInitials] = this.score;
+            scoresArray.push(scores);
+            localStorage.setItem("highScores", JSON.stringify(scoresArray));
+        } else {
+            scoresArray = JSON.parse(localStorage.getItem("highScores"));
+            scores[playerInitials] = this.score;
+            scoresArray.push(scores);
+            localStorage.setItem("highScores", JSON.stringify(scoresArray));
+        }
+
+        const highScores = JSON.parse(localStorage.getItem("highScores"));
+        console.log(highScores);
     }
 };
 
