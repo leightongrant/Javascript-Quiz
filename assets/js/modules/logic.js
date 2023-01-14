@@ -118,6 +118,7 @@ const quiz = {
         let scores = [];
         let scoreDate = new Date();
 
+        // Store highscores to local storage
         if (JSON.parse(localStorage.getItem("highScores")) === null) {
             scores.push([scoreDate.toDateString(), playerInitials, this.score]);
             localStorage.setItem("highScores", JSON.stringify(scores));
@@ -127,12 +128,14 @@ const quiz = {
             localStorage.setItem("highScores", JSON.stringify(scores));
         }
 
+        // Load highscores page
         location.assign("highscores.html");
     },
     renderHighScores () {
         const highScoreslist = document.querySelector("#highscores");
         const highScores = JSON.parse(localStorage.getItem("highScores"));
 
+        // Create list items
         let listItems = "";
         if (highScores !== null) {
             highScores.forEach((score) => {
@@ -143,6 +146,9 @@ const quiz = {
         }
 
         highScoreslist.innerHTML = listItems;
+    },
+    clearHighScores (item) {
+        localStorage.removeItem(item);
     }
 };
 

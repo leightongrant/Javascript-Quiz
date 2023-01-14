@@ -7,6 +7,7 @@ start.addEventListener('click', () => {
     quiz.startQuiz();
 });
 
+// Submit scores
 const submitScore = document.querySelector("#submit");
 submitScore.addEventListener('click', () => {
     quiz.submitScores();
