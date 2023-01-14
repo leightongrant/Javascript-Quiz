@@ -115,21 +115,30 @@ const quiz = {
     },
     submitScores () {
         let playerInitials = document.querySelector("#initials").value.toUpperCase();
-        let scores = {};
-        let scoresArray = [];
+        let scores = [];
+        let scoreDate = new Date();
+
         if (JSON.parse(localStorage.getItem("highScores")) === null) {
-            scores[playerInitials] = this.score;
-            scoresArray.push(scores);
-            localStorage.setItem("highScores", JSON.stringify(scoresArray));
+            scores.push([scoreDate.toDateString(), playerInitials, this.score]);
+            localStorage.setItem("highScores", JSON.stringify(scores));
         } else {
-            scoresArray = JSON.parse(localStorage.getItem("highScores"));
-            scores[playerInitials] = this.score;
-            scoresArray.push(scores);
-            localStorage.setItem("highScores", JSON.stringify(scoresArray));
+            scores = JSON.parse(localStorage.getItem("highScores"));
+            scores.push([scoreDate.toDateString(), playerInitials, this.score]);
+            localStorage.setItem("highScores", JSON.stringify(scores));
         }
 
+        location.assign("highscores.html");
+    },
+    renderHighScores () {
+        const highScoreslist = document.querySelector("#highscores");
         const highScores = JSON.parse(localStorage.getItem("highScores"));
-        console.log(highScores);
+        let listItems = "";
+        highScores.forEach((score) => {
+            listItems += `<li><span class="score-dates">${score[1]}</span class="score-initials">${score[2]}<span></span><span class="high-scores">${score[0]}</span></li>`;
+            //console.log(score[0], score[1], score[2]);
+        });
+
+        highScoreslist.innerHTML = listItems;
     }
 };
 
