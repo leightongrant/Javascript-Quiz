@@ -28,13 +28,13 @@ const quiz = {
     },
     showForm () {
         // Display question
-        document.querySelector('#question-title').innerHTML = `Question ${this.question + 1}<br><hr>${this.questions[this.question][1]}`;
+        document.querySelector('#question-title').innerHTML = `Question ${this.question + 1} of ${this.questions.length}<br><hr>${this.questions[this.question][1]}`;
 
         // Generate Answer Choices
         const choices = document.querySelector('#choices');
         let answerChoices = "<form>";
         this.questions[this.question][2].forEach((q) => {
-            answerChoices += `<input type="radio" name="${this.questions[this.question][0]}" id="ans-${q}" value="${q}"><label for="${q}">${q}</label><br>`;
+            answerChoices += `<span class="answers"><input type="radio" name="${this.questions[this.question][0]}" id="ans-${q}" value="${q}"><label for="${q}">${q}</label></span><br>`;
         });
         answerChoices += "<button type='submit' class='submit'>Check Answer</button>";
         answerChoices += "</form>";
@@ -56,7 +56,7 @@ const quiz = {
             event.preventDefault();
             choiceName.forEach((choice) => {
                 if (choice.checked) {
-                    console.log(choice.value);
+                    // console.log(choice.value)
                     if (choice.value === this.questions[this.question][3]) {
                         // Play feeback sound
                         const audio = new Audio('./assets/sfx/correct.wav');
@@ -99,6 +99,10 @@ const quiz = {
                 setTimeout(() => { this.finalScore(); }, 1500);
             }
         });
+
+        // Styling
+        document.querySelector("#questions").setAttribute("style", "border: 1px solid #d8d8d8;padding: 20px;border-radius: 6px;margin-top: 50px;font-family: monospace;");
+
     },
     finalScore () {
         document.querySelector('#questions').setAttribute('class', 'hide');
@@ -112,7 +116,7 @@ const quiz = {
         // Display form
         this.showForm();
         // Start timer
-        this.startTimer();
+        //this.startTimer();
     },
     submitScores () {
         let playerInitials = document.querySelector("#initials").value.toUpperCase();

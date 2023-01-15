@@ -12,37 +12,42 @@
 </head>
 
 <body>
-  <div class="scores"><a href="highscores.html">View Highscores</a></div>
+  <header id="header">
+    <div class="scores"><a href="highscores.html"><button>View Highscores</button></a></div>
+    <div class="timer">Time Remaining: </div><span id="time">0</span>
+  </header>
+  <main>
+    <div class="wrapper">
+      <div id="start-screen" class="start">
+        <h1>Coding Quiz Challenge</h1>
+        <p>
+          Try to answer the following code-related questions within the time
+          limit. You get five point for each correct answer but keep in mind that incorrect answers will penalize your
+          time by ten seconds!
+        </p>
+        <button id="start">Start Quiz</button>
+      </div>
 
-  <div class="timer">Time Remaining: <span id="time">0</span></div>
+      <div id="questions" class="">
+        <h4 id="question-title"></h4>
+        <div id="choices" class="choices"></div>
+      </div>
 
-  <div class="wrapper">
-    <div id="start-screen" class="start">
-      <h1>Coding Quiz Challenge</h1>
-      <p>
-        Try to answer the following code-related questions within the time
-        limit. You get five point for each correct answer but keep in mind that incorrect answers will penalize your
-        time by ten seconds!
-      </p>
-      <button id="start">Start Quiz</button>
+      <div id="end-screen" class="hide">
+        <h2>All done!</h2>
+        <p>Your final score is <span id="final-score"></span>.</p>
+        <p>
+          Enter initials: <input type="text" id="initials" max="3" />
+          <button id="submit">Submit</button>
+        </p>
+      </div>
+
+      <div id="feedback" class="feedback hide"></div>
     </div>
-
-    <div id="questions" class="">
-      <h2 id="question-title"></h2>
-      <div id="choices" class="choices"></div>
-    </div>
-
-    <div id="end-screen" class="hide">
-      <h2>All done!</h2>
-      <p>Your final score is <span id="final-score"></span>.</p>
-      <p>
-        Enter initials: <input type="text" id="initials" max="3" />
-        <button id="submit">Submit</button>
-      </p>
-    </div>
-
-    <div id="feedback" class="feedback hide"></div>
-  </div>
+  </main>
+  <footer id="footer">
+    <div class="copyright">&copy; 2023, Leighton Grant</div>
+  </footer>
 
 </body>
 
