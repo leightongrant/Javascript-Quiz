@@ -5,7 +5,7 @@ import { questions } from "./questions.js";
 // Quiz object
 const quiz = {
     questions: questions,
-    duration: 2,
+    duration: 20,
     question: 0,
     score: 0,
     startTimer () {
@@ -56,6 +56,7 @@ const quiz = {
             event.preventDefault();
             choiceName.forEach((choice) => {
                 if (choice.checked) {
+                    console.log(choice.value);
                     if (choice.value === this.questions[this.question][3]) {
                         // Play feeback sound
                         const audio = new Audio('./assets/sfx/correct.wav');
