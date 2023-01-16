@@ -11,9 +11,26 @@ const questionChoices = [
     ['question', "How does a WHILE loop start?", ["while i = 1 to 10", "while(i <= 10){}", "while(i <= 10; i++)"], "while(i <= 10){}"],
     ['question', "How does a DO-WHILE loop start?", ["while i = 1 to 10; do(someting)", "do{something}while(i <= 10)", "do(something)while(i <= 10; i++)"], "do{something}while(i <= 10)"],
 ];
-const questions = [];
-for (let i = 1; i < 11; i++) {
-    questions.push(questionChoices[Math.floor(Math.random() * questionChoices.length)]);
-}
+
+const shuffleArr = (array) => {
+    let currentIndex = array.length, randomIndex;
+
+    // While there remain elements to shuffle.
+    while (currentIndex != 0) {
+
+        // Pick a remaining element.
+        randomIndex = Math.floor(Math.random() * currentIndex);
+        currentIndex--;
+
+        // And swap it with the current element.
+        [array[currentIndex], array[randomIndex]] = [
+            array[randomIndex], array[currentIndex]];
+    }
+
+    return array;
+};
+
+// Shuffle questionChoices array and pick ten questions
+const questions = shuffleArr(questionChoices.slice(0, 10));
 
 export { questions };

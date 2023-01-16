@@ -129,8 +129,8 @@ li:nth-child(odd) {
   background: #563d7c;
   color: white;
   align-items: center;
-  height: 50px;
-  padding: 35px 20px;
+  min-height: 50px;
+  padding: 10px 20px;
 }
 
 #header button {
@@ -168,7 +168,6 @@ li:nth-child(odd) {
   justify-content: center;
   align-items: center;
   color: #f3edfc;
-  margin-top: 50px;
 }
 
 main {
@@ -204,5 +203,5 @@ main {
 }
 
 main {
-  min-height: 75vh;
+  min-height: calc(100vh - 120px);
 }
