@@ -116,7 +116,7 @@ const quiz = {
         // Display form
         this.showForm();
         // Start timer
-        //this.startTimer();
+        this.startTimer();
     },
     submitScores (initials) {
         let playerInitials = initials;//document.querySelector("#initials").value.toUpperCase();
