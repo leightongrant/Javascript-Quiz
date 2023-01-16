@@ -5,7 +5,7 @@ import { questions } from "./questions.js";
 // Quiz object
 const quiz = {
     questions: questions,
-    duration: 20,
+    duration: questions.length + 60,
     question: 0,
     score: 0,
     startTimer () {
@@ -101,7 +101,7 @@ const quiz = {
         });
 
         // Styling
-        document.querySelector("#questions").setAttribute("style", "border: 1px solid #d8d8d8;padding: 20px;border-radius: 6px;margin-top: 50px;font-family: monospace;");
+        document.querySelector("#questions").setAttribute("style", "border: 1px solid #d8d8d8;padding: 20px;border-radius: 6px;margin - top: 50px; font - family: monospace; ");
 
     },
     finalScore () {
@@ -116,7 +116,7 @@ const quiz = {
         // Display form
         this.showForm();
         // Start timer
-        //this.startTimer();
+        this.startTimer();
     },
     submitScores () {
         let playerInitials = document.querySelector("#initials").value.toUpperCase();
@@ -144,7 +144,7 @@ const quiz = {
         let listItems = "";
         if (highScores !== null) {
             highScores.forEach((score) => {
-                listItems += `<li><span class="score-dates">${score[1]}</span class="score-initials">${score[2]}<span></span><span class="high-scores">${score[0]}</span></li>`;
+                listItems += `<li><span class="score-initials">${score[1]}</span><span class="high-scores">${score[2]}</span><span class="score-dates">${score[0]}</span></li>`;
             });
         } else {
             listItems = "<li>No scores recorded yet. Play quiz and submit score to see results</li>";
