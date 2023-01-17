@@ -2,27 +2,31 @@
 
 ## A JavaScript Quip App
 
-![alt screenshot](./assets/images/screenshot.png)
 
+<img src="./assets/images/screenshot.png" width="500px" alt="App Screenshot">
 
 
 ## Description
 
-[(Open JavaScript Quiz)](https://misterouija.github.io/Javascript-Quiz/)
+App Link: [(Open JavaScript Quiz)](https://misterouija.github.io/Javascript-Quiz/)
 
-A Coding Quiz Challenge App that challenge the user to try to answer JavaScript code-related questions within the time limit. You get one point for each correct answer but keep in mind that incorrect answers will penalize your time by ten seconds!
+A Coding Quiz Challenge App that challenges the user to try to answer JavaScript code-related questions within the time limit. You get one point for each correct answer but keep in mind that incorrect answers will penalize your time by ten seconds!
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
 ## Usage
 
-Click Start Quiz button to start the challange and at the end enter your initials to save your score.
+Click "Start Quiz" button to start the challange and when finished enter your initials to save your score.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ## Built With
-* [![Next][Next.js]][https://nextjs.org]
+![HTML5](https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white)
+
+![CSS3](https://img.shields.io/badge/css3-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white)
+
+![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -35,6 +39,7 @@ N/A
 N/A
 
 ## License
+![MIT](https://img.shields.io/github/license/Ileriayo/markdown-badges?style=for-the-badge)
 
 Please refer to the LICENSE in the repo.
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
