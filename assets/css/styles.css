@@ -117,6 +117,16 @@ li:nth-child(odd) {
   font-size: 16px;
 }
 
+.answers>input {
+  margin-left: 15px;
+}
+
+input[type='radio'] {
+  width: 20px;
+  height: 20px;
+  margin-right: 15px;
+}
+
 #header {
   display: flex;
   flex: 1;
