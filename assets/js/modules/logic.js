@@ -104,7 +104,7 @@ const quiz = {
     finalScore () {
         this.hideElement("questions");
         this.showElement("end-screen");
-        this.setTextContent("final-score", this.score);
+        this.setTextContent("final-score", `${this.score} out of ${this.questions.length}`);
         this.setTextContent("final-score-percent", this.getScorePercentage());
     },
     startQuiz () {
