@@ -102,9 +102,12 @@ const quiz = {
 
     },
     finalScore () {
-        document.querySelector('#questions').setAttribute('class', 'hide');
-        document.querySelector('#end-screen').setAttribute('class', 'show');
-        document.querySelector('#final-score').textContent = this.score;
+        this.hideElement("questions");
+        this.showElement("end-screen");
+        this.setTextContent("final-score", this.score);
+        //document.querySelector('#questions').setAttribute('class', 'hide');
+        //document.querySelector('#end-screen').setAttribute('class', 'show');
+        //document.querySelector('#final-score').textContent = this.score;
 
     },
     startQuiz () {
@@ -156,6 +159,12 @@ const quiz = {
     },
     hideElement (id) {
         document.querySelector(`#${id}`).setAttribute("class", "hide");
+    },
+    showElement (id) {
+        document.querySelector(`#${id}`).setAttribute("class", "show");
+    },
+    setTextContent (id, content) {
+        document.querySelector(`#${id}`).textContent = content;
     }
 };
 

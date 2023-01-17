@@ -67,7 +67,7 @@ li:nth-child(odd) {
 }
 
 .wrapper {
-  margin: 100px auto 0 auto;
+  margin: 50px auto;
   max-width: 600px;
 }
 
@@ -82,12 +82,6 @@ li:nth-child(odd) {
 .start {
   text-align: center;
 }
-
-/* .scores {
-  position: absolute;
-  top: 10px;
-  left: 10px;
-} */
 
 .feedback {
   font-style: italic;
