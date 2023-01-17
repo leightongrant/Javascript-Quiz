@@ -122,11 +122,11 @@ const quiz = {
 
         // Store highscores to local storage
         if (JSON.parse(localStorage.getItem("highScores")) === null) {
-            scores.push([scoreDate.toLocaleString(), playerInitials, this.score]);
+            scores.push([scoreDate.toLocaleString(), playerInitials, `${this.score}/${questions.length}`]);
             localStorage.setItem("highScores", JSON.stringify(scores));
         } else {
             scores = JSON.parse(localStorage.getItem("highScores"));
-            scores.push([scoreDate.toLocaleString(), playerInitials, this.score]);
+            scores.push([scoreDate.toLocaleString(), playerInitials, `${this.score}/${questions.length}`]);
             localStorage.setItem("highScores", JSON.stringify(scores));
         }
 
