@@ -61,10 +61,10 @@ const quiz = {
                         // Adds score
                         this.score += 5;
                         // Display feedback
-                        document.querySelector("#feedback").setAttribute('class', 'show');
-                        document.querySelector("#feedback").setAttribute('style', 'color: green;');
-                        document.querySelector("#feedback").textContent = "Correct";
-                        setTimeout(() => { document.querySelector("#feedback").setAttribute('class', 'hide'); }, 1000);
+                        this.showElement("feedback");
+                        this.setFeedbackStyle("green");
+                        this.setTextContent("feedback", "Correct");
+                        setTimeout(() => { this.hideElement("feedback"); }, 1000);
 
 
                     } else {
@@ -74,10 +74,10 @@ const quiz = {
                         // Decrease timer by ten if value is greater than ten
                         this.duration > 10 ? this.duration -= 10 : this.duration = 0;
                         // Display feedback
-                        document.querySelector("#feedback").setAttribute('class', 'show');
-                        document.querySelector("#feedback").setAttribute('style', 'color: red;');
-                        document.querySelector("#feedback").textContent = "Inorrect";
-                        setTimeout(() => { document.querySelector("#feedback").setAttribute('class', 'hide'); }, 1000);
+                        this.showElement("feedback");
+                        this.setFeedbackStyle("red");
+                        this.setTextContent("feedback", "Correct");
+                        setTimeout(() => { this.hideElement("feedback"); }, 1000);
 
                     }
 
@@ -105,10 +105,6 @@ const quiz = {
         this.hideElement("questions");
         this.showElement("end-screen");
         this.setTextContent("final-score", this.score);
-        //document.querySelector('#questions').setAttribute('class', 'hide');
-        //document.querySelector('#end-screen').setAttribute('class', 'show');
-        //document.querySelector('#final-score').textContent = this.score;
-
     },
     startQuiz () {
         // Sets the question property back to zero
@@ -165,9 +161,14 @@ const quiz = {
     },
     setTextContent (id, content) {
         document.querySelector(`#${id}`).textContent = content;
+    },
+    setFeedbackStyle (color) {
+        let style = `color: ${color};`;
+        style += 'font-style: italic;font-size: 120%;margin-top: 20px;';
+        style += 'padding-top: 10px;border-top: 2px solid #ccc;font-weight:bold;';
+        document.querySelector("#feedback").setAttribute('style', style);
     }
 };
 
 
 export { quiz };
-

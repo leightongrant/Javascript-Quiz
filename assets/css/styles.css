@@ -86,7 +86,7 @@ li:nth-child(odd) {
 .feedback {
   font-style: italic;
   font-size: 120%;
-  margin-top: 20px;
+  margin-top: 40px;
   padding-top: 10px;
   color: gray;
   border-top: 2px solid #ccc;
