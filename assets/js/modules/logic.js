@@ -19,9 +19,6 @@ const quiz = {
                 clearInterval(clearTimer);
                 // Shows final score if timer runs out or questions finished
                 setTimeout(() => { this.finalScore(); }, 1500);
-            } else {
-                // Hide start button once quiz has started
-                document.querySelector('#start').style.visibility = 'hidden';
             }
         };
         let clearTimer = setInterval(countdown, 1000);
@@ -117,6 +114,8 @@ const quiz = {
         this.showForm();
         // Start timer
         this.startTimer();
+        // Hide start screen
+        this.hideElement("start-screen");
     },
     submitScores (initials) {
         let playerInitials = initials;//document.querySelector("#initials").value.toUpperCase();
@@ -154,6 +153,9 @@ const quiz = {
     },
     clearHighScores (item) {
         localStorage.removeItem(item);
+    },
+    hideElement (id) {
+        document.querySelector(`#${id}`).setAttribute("class", "hide");
     }
 };
 
