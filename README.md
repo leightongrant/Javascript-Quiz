@@ -3,7 +3,7 @@
 ## A JavaScript Quip App
 
 
-<img src="./assets/images/screenshot.png" width="500px" alt="App Screenshot">
+<a href="https://misterouija.github.io/Javascript-Quiz/"><img src="./assets/images/screenshot.png" width="500px" alt="App Screenshot"></a>
 
 
 ## Description
