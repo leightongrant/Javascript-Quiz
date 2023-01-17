@@ -10,6 +10,12 @@ const questionChoices = [
     ['question', "How do you call a function named \"myFunction\"?", ["call myFunction", "myFunction()", "var myFunction", "myFunction"], "myFunction()"],
     ['question', "How does a WHILE loop start?", ["while i = 1 to 10", "while(i <= 10){}", "while(i <= 10; i++)"], "while(i <= 10){}"],
     ['question', "How does a DO-WHILE loop start?", ["while i = 1 to 10; do(someting)", "do{something}while(i <= 10)", "do(something)while(i <= 10; i++)"], "do{something}while(i <= 10)"],
+    ['question', "Arrays in JavaScript are defined by which of the following statements?", ["It is an ordered list of objects", "It is an ordered list of values", "It is an ordered list of string", "It is an ordered list of functions"], "It is an ordered list of values"],
+    ['question', "Which of the following object is the main entry point to all client-side JavaScript features and APIs?", ["Position", "Location", "Window", "Standard"], "Window"],
+    ['question', "Which of the following can be used to call a JavaScript Code Snippet?", ["Preprocessor", "Event Listener", "Trigger Event", "Method"], "Method"],
+    ['question', "Which of the following is a string method?", [".forEach()", ".filter()", ".toLowerCase()", ".map()"], ".toLowerCase()"],
+    ['question', "What will be the result or type of error if p is not defined?", ["Value not found Error", "Reference Error", "Null", "Zero"], "Reference Error"],
+    ['question', "Which of the following is correct about JavaScript?", ["JavaScript is Assembly-language", "JavaScript is an Object-Based language", "JavaScript is an Object-Oriented language", "JavaScript is a High-level language"], "JavaScript is an Object-Oriented language"],
 ];
 
 const shuffleArr = (array) => {
@@ -31,6 +37,6 @@ const shuffleArr = (array) => {
 };
 
 // Shuffle questionChoices array and pick ten questions
-const questions = shuffleArr(questionChoices.slice(0, 10));
+const questions = shuffleArr(questionChoices.slice(0, 12));
 
 export { questions };

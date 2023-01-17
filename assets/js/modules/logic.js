@@ -1,6 +1,5 @@
 // Imports
 import { questions } from "./questions.js";
-//const questions = require('./questions.js');
 
 // Quiz object
 const quiz = {
@@ -53,7 +52,6 @@ const quiz = {
             event.preventDefault();
             choiceName.forEach((choice) => {
                 if (choice.checked) {
-                    // console.log(choice.value)
                     if (choice.value === this.questions[this.question][3]) {
                         // Play feeback sound
                         const audio = new Audio('./assets/sfx/correct.wav');
@@ -118,7 +116,7 @@ const quiz = {
         this.hideElement("start-screen");
     },
     submitScores (initials) {
-        let playerInitials = initials;//document.querySelector("#initials").value.toUpperCase();
+        let playerInitials = initials;
         let scores = [];
         let scoreDate = new Date();
 
@@ -170,7 +168,7 @@ const quiz = {
         document.querySelector("#feedback").setAttribute('style', style);
     },
     getScorePercentage () {
-        return (this.score / (this.questions.length) * 100);
+        return ((this.score / (this.questions.length) * 100).toFixed(2));
     }
 };
 

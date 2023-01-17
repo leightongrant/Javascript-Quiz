@@ -7,5 +7,5 @@ quiz.renderHighScores();
 const clearHighScores = document.querySelector("#clear");
 clearHighScores.addEventListener('click', () => {
     quiz.clearHighScores("highScores");
-    location.assign("highscores.html");
+    location.reload();
 });

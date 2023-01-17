@@ -12,7 +12,7 @@ start.addEventListener('click', () => {
 const submitScore = document.querySelector("#submit");
 submitScore.addEventListener('click', () => {
 
-    //quiz.submitScores();
+    // Check initials before submitting
     let subscore = document.querySelector("#initials").value;
     const inputFeedback = (message) => {
         document.querySelector("#initials").style.backgroundColor = "pink";

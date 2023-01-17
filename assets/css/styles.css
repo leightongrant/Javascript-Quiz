@@ -121,6 +121,11 @@ li:nth-child(odd) {
   margin-left: 15px;
 }
 
+.answers:hover {
+  background: #8570a5;
+  cursor: pointer;
+}
+
 input[type='radio'] {
   width: 20px;
   height: 20px;
