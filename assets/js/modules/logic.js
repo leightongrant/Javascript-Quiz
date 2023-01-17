@@ -59,7 +59,7 @@ const quiz = {
                         const audio = new Audio('./assets/sfx/correct.wav');
                         audio.play();
                         // Adds score
-                        this.score += 5;
+                        this.score += 1;
                         // Display feedback
                         this.showElement("feedback");
                         this.setFeedbackStyle("green");
@@ -105,6 +105,7 @@ const quiz = {
         this.hideElement("questions");
         this.showElement("end-screen");
         this.setTextContent("final-score", this.score);
+        this.setTextContent("final-score-percent", this.getScorePercentage());
     },
     startQuiz () {
         // Sets the question property back to zero
@@ -167,6 +168,9 @@ const quiz = {
         style += 'font-style: italic;font-size: 120%;margin-top: 20px;';
         style += 'padding-top: 10px;border-top: 2px solid #ccc;font-weight:bold;';
         document.querySelector("#feedback").setAttribute('style', style);
+    },
+    getScorePercentage () {
+        return (this.score / (this.questions.length) * 100);
     }
 };
 

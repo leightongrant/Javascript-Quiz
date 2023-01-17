@@ -209,3 +209,11 @@ main {
 main {
   min-height: calc(100vh - 120px);
 }
+
+#end-screen p {
+  font-size: 18px;
+}
+
+#end-screen h2 {
+  font-size: 25px;
+}

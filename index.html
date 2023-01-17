@@ -22,7 +22,7 @@
         <h1>Coding Quiz Challenge</h1>
         <p>
           Try to answer the following code-related questions within the time
-          limit. You get five point for each correct answer but keep in mind that incorrect answers will penalize your
+          limit. You get one point for each correct answer but keep in mind that incorrect answers will penalize your
           time by ten seconds!
         </p>
         <button id="start">Start Quiz</button>
@@ -35,12 +35,13 @@
 
       <div id="end-screen" class="hide">
         <h2>All done!</h2>
-        <p>Your final score is <span id="final-score"></span>.</p>
+        <p>Your final score is: <span id="final-score"></span>.</p>
+        <p>You got: <span id="final-score-percent"></span>% corret.</p>
         <p>
-        <div>
-          Enter initials: <input type="text" name="initials" id="initials" max="2" placeholder="eg. LG" />
+
+          Enter initials to save score: <input type="text" name="initials" id="initials" max="2" placeholder="eg. LG" />
           <button id="submit">Submit</button><a href="index.html"><button>Retake Quiz</button></a>
-        </div>
+
         </p>
       </div>
 
